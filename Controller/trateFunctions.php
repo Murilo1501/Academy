@@ -1,14 +1,20 @@
 <?php
 
-function filter($email,$senha):string|bool{
+function filter($email,$senha):array{
 
-  $email =  filter_var($email,FILTER_SANITIZE_EMAIL);
+  $email =  filter_var($email,FILTER_VALIDATE_EMAIL);
+  $email = htmlspecialchars($email);
+  $email = addslashes($email);
+
+  $senha = htmlspecialchars($senha);
+  $senha = addslashes($senha);
   
 
-  if($email){
-      return $email;
-  }
+  $data = [
+    'email' => $email,
+    'password' => $senha
+  ];
 
-  //return $email;
+  return $data;
    
 }
