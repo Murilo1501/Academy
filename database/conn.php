@@ -4,10 +4,15 @@ function connect(){
 
   $user = 'root';
   $pass = '';
+  $server = 'localhost';
+  $database = 'academy';
 
-  $conn = new PDO('mysql:host=localhost;dbname=academy;',$user,$pass);
+  $conn = mysqli_connect($server,$user,$pass,$database);
 
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  if(mysqli_connect_errno()){
+    die('fail'.mysqli_connect_error());
+  } 
+
   //echo "Connected successfully";
 
   return $conn;

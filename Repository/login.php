@@ -5,24 +5,30 @@ require_once '../database/conn.php';
 
 function login($data) {
    $conn =  connect();
-    var_dump($data);
+   //var_dump($data);
+
 
     $sql = "SELECT * FROM users WHERE email = ?";
-    $resultSql = $conn->prepare($sql);
-    $resultSql->bindParam(1,$data['email']);
-    $resultSql->execute();
+    $resultSql = mysqli_prepare($conn,$sql);
+    mysqli_stmt_bind_param($resultSql,'s',$data['email']);
+    mysqli_execute($resultSql);
 
-    $resultData = $resultSql->fetch(PDO::FETCH_ASSOC);
-    //var_dump($resultData);
+    $result = mysqli_stmt_get_result($resultSql);
+    $returnData = mysqli_fetch_assoc($result);
 
-    if(count($resultData) > 0 ){
-        if($data['password'] == $resultData['password']){
-        return $resultData;
-       }
 
-    } 
+    if(mysqli_num_rows($result) == 0 ){
+        return false;
+    }
 
-    return false;
+
+
+    $conn->close();
+    return $returnData;
+
+
+
+  
 
 }
 

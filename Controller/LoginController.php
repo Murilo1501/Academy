@@ -12,14 +12,15 @@ if(!empty($_POST['email'])  && !empty($_POST['password'])){
     $filter = filter($user,$password);
 
     if($filter){
-       $success =  login($filter);
+       $success = login($filter);
        if($success){
            $_SESSION['email'] = $success;
            header("Location:../Views/logado.php");
            exit();  
        }
     } else{
-       
+       header("Location:../Views/index.php");
+       exit();
     }
 }
 

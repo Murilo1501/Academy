@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 50px;
+            width: 400px;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        .form-group {
+            margin: 15px 0;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        select {
+            height: 35px;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #258cd1;
+        }
+</style>
+
+
+</head>
+<body>
+    <div class="container">           
+        <form method="post" action="../Controller/registerController.php">
+           <div class="form-group">Complete Name:<label for="CompleteName"></label><input type="text" name="CompleteName" id="CompleteName"></div>
+           <div class="form-group">Email:<label for="email"></label><input type="email" name="email" id="email"></div>
+           <div class="form-group">Password:<label for="password"></label><input type="password" name="password" id="password"></div>
+           <div class="form-group">Confirm password:<label for="Confirmpassword"></label><input type="password" name="ConfirmPassword" id="ConfirmPassword"></div>
+           <div class="form-group">
+               <select name="gender" id="gender">
+                   <option value="female">Female</option>
+                   <option value="male">Male</option>
+               </select>
+           </div>
+           <div class="form-group">Birthday<label for="Birthday"></label><input type="date" name="Birthday" id="Birthday"></div>
+           <div class="form-group">Phone Number<label for="phoneNumber"></label><input type="number" name="phoneNumber" id="phoneNumber"></div>
+           <div class="form-group">Cep<label for="cep"></label><input type="number" name="cep" id="cep"></div>
+           <div class="form-group">Address:<label for="address"></label><input type="text" name="address" id="address"></div>
+           <div class="form-group">House Number:<label for="houseNumber"></label><input type="number" name="houseNumber" id="houseNumber"></div>
+           <div class="form-group">Neighborhood:<label for="neighborhood"></label><input type="text" name="neighborhood" id="neighborhood"></div>
+           <div class="form-group">City:<label for="city"></label><input type="text" name="city" id="city"></div>
+           <div class="form-group">State:<label for="State"></label><input type="text" name="State" id="State"></div>
+           <div class="form-group">Country:<label for="Country"></label><input type="text" name="country" id="country"></div>
+           <div class="form-group">Course:<label for="Course"></label><input type="text" name="course" id="course"></div>
+           <div class="form-group">Modality<label for="Modality"></label><input type="text" name="modality" id="modality"></div>
+           <div class="form-group">Register Date<label for="registerDate"></label><input type="date" name="registerDate" id="registerDate"></div>
+           <div class="form-group">Semester<label for="Semester"></label><input type="text" name="Semester" id="Semester"></div>
+
+           <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
