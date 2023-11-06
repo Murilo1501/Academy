@@ -5,5 +5,7 @@ use App\Controller\LoginController;
 
 return [ 
     'GET|/academyOne/'=> [LoginController::class,'index'],
+    'GET|/academyOne/form' => [UserController::class,'create'],
+    'POST|/academyOne/store' => [UserController::class,'store'],
     'GET|/academyOne/admin'=> [UserController::class,'index']
 ];

@@ -8,6 +8,9 @@ require_once __DIR__.'/Controller/loginController.php';
 //Models
 require_once __DIR__.'/Model/UserModel.php';
 
+//database
+require_once __DIR__.'/config/database/connect.php';
+
 $routes = require_once 'routes/routes.php';
 
 
