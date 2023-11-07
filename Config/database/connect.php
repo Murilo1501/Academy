@@ -15,7 +15,7 @@ class Connect{
     
     }
 
-    public function connect(){
+    public static function connect(){
         $pdo = new PDO("mysql:host=localhost;dbname=academy;",$this->user,$this->pass);
 
         return $pdo;

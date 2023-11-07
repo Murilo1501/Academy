@@ -24,12 +24,7 @@ function routeRequest($routes) {
 
         if (class_exists($controllerClass)) {
             $controller = new $controllerClass();
-
-            if (method_exists($controller, $action)) {
-                $controller->$action();
-            } else {
-                http_response_code(404);
-            }
+            $controller->$action();
         } else {
             http_response_code(404);
         }

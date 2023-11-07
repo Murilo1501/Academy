@@ -10,8 +10,7 @@ class UserModel {
 
     function __construct()
     {
-       $this->db = new Connect;
-       $this->conn = $this->db->connect();
+       $this->conn = Connect::connect();
     }
 
     public function select(){
