@@ -35,6 +35,10 @@ class UserController implements Controller
         move_uploaded_file($file["tmp_name"], $path);
 
         $store = $this->model->insert($data,$path);
+
+        if($store){
+            header("Location:/academyOne/");
+        }
     }
 
     public function edit()

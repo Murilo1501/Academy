@@ -7,12 +7,14 @@
     <title>Login</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="/academyOne/login" method="post">
         <label for="email">Email</label>
         <input type="email" name="email" id="email">
 
         <label for="password">Password</label>
         <input type="password" name="password" id="password">
+
+        <button type="submit">Save</button>
     </form>
 </body>
 </html>
