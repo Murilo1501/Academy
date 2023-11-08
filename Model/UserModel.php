@@ -10,12 +10,13 @@ class UserModel {
 
     function __construct()
     {
-       $this->conn = Connect::connect();
+       $this->conn = new Connect();
+       $this->db = $this->conn->connect();
     }
 
     public function select(){
         $stm = "SELECT * FROM users";
-        $resultStm = $this->conn->prepare($stm);
+        $resultStm = $this->db->prepare($stm);
         $resultStm->execute();
 
         $users = $resultStm->fetchAll();
@@ -27,7 +28,7 @@ class UserModel {
 
     public function insert($data,$path){
         $stm = "INSERT INTO users (name,email,password,course,phone,gender,birthDate,image) VALUES (?,?,?,?,?,?,?,?)";
-        $resultStm = $this->conn->prepare($stm);
+        $resultStm = $this->db->prepare($stm);
         $resultStm->bindParam(1,$data['name']);
         $resultStm->bindParam(2,$data['email']);
         $resultStm->bindParam(3,$data['password']);

@@ -4,6 +4,8 @@
 require_once __DIR__.'/Controller/controller.php';
 require_once __DIR__.'/Controller/UserController.php';
 require_once __DIR__.'/Controller/loginController.php';
+require_once __DIR__.'/Controller/treatingController.php';
+
 
 //Models
 require_once __DIR__.'/Model/UserModel.php';

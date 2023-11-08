@@ -1,0 +1,7 @@
+spl_autoload_register(function($namespace)){
+    $namespace = str_replace("\\",DIRECTORY_SEPARATOR,$namespace);
+    $filename = __DIR__."\\".$namespace.".php";
+    if(file_exists($filename)){
+        require $filename;
+    }
+}  

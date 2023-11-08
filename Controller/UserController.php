@@ -2,13 +2,15 @@
 
 namespace App\Controller;
 
-use App\Controller\controller;
 use App\Model\UserModel;
+use App\Controller\{UserController,LoginController,TreatingController};
+require_once 'treatingController.php';
 
 
-class UserController implements Controller
+class UserController extends TreatingController implements Controller
 {
     private $model;
+    private $filter;
 
     function __construct()
     {
@@ -29,6 +31,8 @@ class UserController implements Controller
     public function store()
     {
         $data = $_POST;
+        $this->filter = TreatingController::sendInputs($data);
+        //die();
         $file = $_FILES['photo'];
         $dir = "image/";
         $path = "$dir" . $file["name"];

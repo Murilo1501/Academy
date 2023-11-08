@@ -3,6 +3,7 @@
 use App\Controller\UserController;
 use App\Controller\LoginController;
 
+
 return [ 
     'GET|/academyOne/'=> [LoginController::class,'index'],
     'POST|/academyOne/login'=> [LoginController::class,'login'],
