@@ -1,38 +1,27 @@
 <?php
 
-//Controllers
-require_once __DIR__.'/Controller/controller.php';
-require_once __DIR__.'/Controller/UserController.php';
-require_once __DIR__.'/Controller/loginController.php';
-require_once __DIR__.'/Controller/treatingController.php';
+namespace App\Route;
 
 
-//Models
-require_once __DIR__.'/Model/UserModel.php';
-require_once __DIR__.'/Model/LoginModel.php';
+class Route{
 
-//database
-require_once __DIR__.'/config/database/connect.php';
+    private static $routes = [];
 
-$routes = require_once 'routes/routes.php';
+    public static function get($uri,$callback){
+        Self::$routes['GET'][$uri] = $callback;
+    }
 
+    public static function post($uri,$callback){
+        Self::$routes['POST'][$uri] = $callback;
+    }
 
-function routeRequest($routes) {
-    $pathInfo = $_SERVER['REQUEST_URI'];
-    $method = $_SERVER['REQUEST_METHOD'];
-    $key = "$method|$pathInfo";
-    if (array_key_exists($key, $routes)) {
-        list($controllerClass, $action) = $routes[$key];
-
-        if (class_exists($controllerClass)) {
-            $controller = new $controllerClass();
-            $controller->$action();
+    public static function redirect($requestURI,$requestMethod){
+        if(array_key_exists($requestMethod,Self::$routes) && array_key_exists($requestURI, self::$routes[$requestMethod])){
+            return self::$routes[$requestMethod][$requestURI]();
         } else {
-            http_response_code(404);
+            return '404 Not Found';
         }
-    } else {
-        http_response_code(404);
     }
 }
 
-routeRequest($routes);
+
